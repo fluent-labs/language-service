@@ -1,4 +1,4 @@
-FROM python:3.9.2-slim-buster as base
+FROM python:3.10.0b4-slim-buster as base
 
 ENV PYTHONFAULTHANDLER=1 \
     PYTHONHASHSEED=random \
