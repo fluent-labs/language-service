@@ -9,7 +9,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - uses: brpaz/hadolint-action@v1.3.1
+    - uses: brpaz/hadolint-action@v1.5.0
       name: Lint container image
       with:
         dockerfile: Dockerfile
