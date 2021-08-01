@@ -3,14 +3,6 @@ name: Test language-service
 on: [pull_request]
 
 jobs:
-  add-label:
-    name: Add patch label to pull request
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/labeler@v3
-      with:
-        repo-token: "${{ secrets.GITHUB_TOKEN }}"
-
   build:
     runs-on: ubuntu-latest
 
@@ -57,9 +49,6 @@ jobs:
     - name: Install dependencies
       run: poetry install
 
-    - name: Dependency security check
-      run: poetry run safety check
-
     - name: Check for syntax errors
       run: poetry run flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
 
@@ -71,8 +60,11 @@ jobs:
         # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
         poetry run flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
 
-    - name: Code security check
-      run: poetry run bandit -r language_service/*
-
     - name: Validate code formatter
       run: poetry run black . --check
+
+    - name: Code security check
+      run: poetry run bandit -r language_service/*
+    
+    - name: Dependency security check
+      run: poetry run safety check
