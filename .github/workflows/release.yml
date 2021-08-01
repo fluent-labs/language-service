@@ -12,10 +12,11 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - uses: K-Phoen/semver-release-action@master
+    - uses: krogon/semver-release-action@master
       name: Calculate release version
       id: release_version
       with:
+        default_increment: patch
         release_branch: main
         release_strategy: none
       env:
