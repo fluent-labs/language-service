@@ -9,7 +9,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - uses: brpaz/hadolint-action@v1.3.1
+    - uses: brpaz/hadolint-action@v1.5.0
       name: Lint container image
       with:
         dockerfile: Dockerfile
@@ -37,12 +37,12 @@ jobs:
     - uses: actions/checkout@v2
 
     - name: Set up Python 3.9
-      uses: actions/setup-python@v2.2.1
+      uses: actions/setup-python@v2.2.2
       with:
         python-version: 3.9
 
     - name: Install package manager
-      uses: abatilo/actions-poetry@v2.1.0
+      uses: abatilo/actions-poetry@v2.1.2
       with:
         poetry-version: 1.1.4
 
