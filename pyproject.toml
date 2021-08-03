@@ -18,8 +18,9 @@ marshmallow = "^3.5.1"
 
 # Tagging
 spacy = "^3.1.0"
-en-core-web-sm = {url = "https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.1.0/en_core_web_sm-3.1.0.tar.gz"}
-es-core-news-sm = {url = "https://github.com/explosion/spacy-models/releases/download/es_core_news_sm-3.1.0/es_core_news_sm-3.1.0.tar.gz"}
+da_core_news_sm = {url = "https://github.com/explosion/spacy-models/releases/download/da_core_news_sm-3.1.0/da_core_news_sm-3.1.0.tar.gz"}
+en_core_web_sm = {url = "https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.1.0/en_core_web_sm-3.1.0.tar.gz"}
+es_core_news_sm = {url = "https://github.com/explosion/spacy-models/releases/download/es_core_news_sm-3.1.0/es_core_news_sm-3.1.0.tar.gz"}
 zh_core_web_sm = {url = "https://github.com/explosion/spacy-models/releases/download/zh_core_web_sm-3.1.0/zh_core_web_sm-3.1.0.tar.gz"}
 
 # Definitions
