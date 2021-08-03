@@ -1,6 +1,6 @@
 import logging
 
-SUPPORTED_LANGUAGES = ["CHINESE", "ENGLISH", "SPANISH"]
+SUPPORTED_LANGUAGES = ["CHINESE", "DANISH", "ENGLISH", "SPANISH"]
 logger = logging.getLogger("LanguageService")
 
 
