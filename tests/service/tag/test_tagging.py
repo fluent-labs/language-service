@@ -23,6 +23,24 @@ def test_can_tag_chinese():
     )
 
 
+def test_can_tag_danish():
+    words = tag("DANISH", "Hej, jeg er en sætning i Dansk.")
+    compare(
+        words,
+        [
+            Word(token="Hej", tag="PROPN", lemma="Hej"),
+            Word(token=",", tag="PUNCT", lemma=","),
+            Word(token="jeg", tag="PRON", lemma="jeg"),
+            Word(token="er", tag="AUX", lemma="være"),
+            Word(token="en", tag="DET", lemma="en"),
+            Word(token="sætning", tag="NOUN", lemma="sætning"),
+            Word(token="i", tag="ADP", lemma="i"),
+            Word(token="Dansk", tag="ADJ", lemma="Dansk"),
+            Word(token=".", tag="PUNCT", lemma="."),
+        ],
+    )
+
+
 def test_can_tag_english():
     words = tag("ENGLISH", "The test has passed because these words were returned.")
     compare(
