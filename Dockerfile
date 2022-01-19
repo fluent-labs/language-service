@@ -40,5 +40,7 @@ ENV PATH="/venv/bin:${PATH}"
 COPY --from=builder /venv /venv
 COPY language_service /app/
 
+RUN poetry run test
+
 EXPOSE 8000
 CMD ["gunicorn", "LanguageService:app", "--config=gunicorn.conf.py"]
