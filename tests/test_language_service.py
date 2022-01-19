@@ -53,7 +53,8 @@ def test_definitions_single(mocker):
 
     client = app.test_client()
     response = client.get(
-        "/v1/definition/ENGLISH/test", headers={"Authorization": "local"},
+        "/v1/definition/ENGLISH/test",
+        headers={"Authorization": "local"},
     )
 
     assert response.status == "200 OK"
