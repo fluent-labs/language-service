@@ -42,7 +42,7 @@ jobs:
         python-version: 3.9
 
     - name: Install package manager
-      uses: abatilo/actions-poetry@v2.1.2
+      uses: abatilo/actions-poetry@v2.1.4
       with:
         poetry-version: 1.1.4
 
