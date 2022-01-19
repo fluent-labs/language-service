@@ -59,6 +59,12 @@ jobs:
       run: |
         # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
         poetry run flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+        
+    - uses: reviewdog/action-black@v2
+        with:
+          github_token: ${{ secrets.github_token }}
+          reporter: github-pr-check
+          level: warning
 
     - name: Validate code formatter
       run: poetry run black . --check
