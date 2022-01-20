@@ -33,7 +33,7 @@ python-json-logger = "^0.1.11"
 pytest = "^6.2"
 
 # Linting and formatting
-flake8 = "^3.7.9"
+flake8 = "^4.0.1"
 black = "^21.12b0"
 
 # Security
