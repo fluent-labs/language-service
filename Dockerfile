@@ -7,7 +7,9 @@ ENV PYTHONFAULTHANDLER=1 \
 WORKDIR /app
 
 RUN apt-get update && \
-        apt-get install -y --no-install-recommends libgmp10=2:6.2.1+dfsg-1+deb11u1
+        apt-get install -y --no-install-recommends libgmp10=2:6.2.1+dfsg-1+deb11u1 && \
+        apt-get clean && \
+        rm -rf /var/lib/apt/lists/*
 
 FROM base as builder
 
