@@ -6,6 +6,9 @@ ENV PYTHONFAULTHANDLER=1 \
 
 WORKDIR /app
 
+RUN apt-get update && \
+        apt-get install -y --no-install-recommends libgmp10=2:6.2.1+dfsg-1+deb11u1
+
 FROM base as builder
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
