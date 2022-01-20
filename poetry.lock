@@ -620,11 +620,11 @@ dev = ["pre-commit", "tox", "pytest-asyncio"]
 
 [[package]]
 name = "python-json-logger"
-version = "0.1.11"
+version = "2.0.2"
 description = "A python library adding a json log formatter"
 category = "main"
 optional = false
-python-versions = ">=2.7"
+python-versions = ">=3.5"
 
 [[package]]
 name = "pytz"
@@ -1003,7 +1003,7 @@ testing = ["coverage (>=5.0.3)", "zope.event", "zope.testing"]
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8.5"
-content-hash = "0fad813271ab45baa912b8113ece7f0bfeb71f6e1444d87664032824ee1f9d7c"
+content-hash = "5f44c624c0511f90cab410471f05637849556f04c28a972fccc67f3e88423d6f"
 
 [metadata.files]
 aniso8601 = [
@@ -1583,7 +1583,8 @@ pytest-mock = [
     {file = "pytest_mock-3.6.1-py3-none-any.whl", hash = "sha256:30c2f2cc9759e76eee674b81ea28c9f0b94f8f0445a1b87762cadf774f0df7e3"},
 ]
 python-json-logger = [
-    {file = "python-json-logger-0.1.11.tar.gz", hash = "sha256:b7a31162f2a01965a5efb94453ce69230ed208468b0bbc7fdfc56e6d8df2e281"},
+    {file = "python-json-logger-2.0.2.tar.gz", hash = "sha256:202a4f29901a4b8002a6d1b958407eeb2dd1d83c18b18b816f5b64476dde9096"},
+    {file = "python_json_logger-2.0.2-py3-none-any.whl", hash = "sha256:99310d148f054e858cd5f4258794ed6777e7ad2c3fd7e1c1b527f1cba4d08420"},
 ]
 pytz = [
     {file = "pytz-2021.1-py2.py3-none-any.whl", hash = "sha256:eb10ce3e7736052ed3623d49975ce333bcd712c7bb19a58b9e2089d4057d0798"},
