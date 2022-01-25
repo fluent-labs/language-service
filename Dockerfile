@@ -15,6 +15,8 @@ ENV PIP_DEFAULT_TIMEOUT=100 \
     PIP_NO_CACHE_DIR=1 \
     POETRY_VERSION=1.1.4
 
+RUN apk add build-base
+
 RUN pip install "poetry==$POETRY_VERSION"
 
 RUN python -m venv /venv
