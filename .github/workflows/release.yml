@@ -10,12 +10,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v2.4.0
 
-    - uses: K-Phoen/semver-release-action@master
+    - uses: krogon/semver-release-action@master
       name: Calculate release version
       id: release_version
       with:
+        default_increment: patch
         release_branch: main
         release_strategy: none
       env:
@@ -34,14 +35,14 @@ jobs:
       run: docker build . -t lkjaero/language-service:latest
     
     - name: Enforce security rules
-      uses: anchore/scan-action@v2.0.4
+      uses: anchore/scan-action@v3.2.0
       id: scan
       with:
         image: "lkjaero/language-service:latest"
         acs-report-enable: true
     
     - name: Login to Docker Hub
-      uses: docker/login-action@v1.8.0
+      uses: docker/login-action@v1.12.0
       with:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
@@ -52,20 +53,20 @@ jobs:
         docker push lkjaero/language-service:${{ steps.release_version.outputs.tag }}
         docker push lkjaero/language-service:latest
 
-    - name: Log into DigitalOcean
-      uses: digitalocean/action-doctl@v2.1.0
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v1
       with:
-        token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: us-west-2
 
-    - name: Save DigitalOcean kubeconfig
-      run: doctl kubernetes cluster kubeconfig show foreign-language-reader > $GITHUB_WORKSPACE/.kubeconfig
+    - name: Save kubeconfig
+      run: aws eks --region us-west-2 update-kubeconfig --name fluentlabsprod
 
     - name: Update image in K8s
       run: |
-        kubectl --kubeconfig=$GITHUB_WORKSPACE/.kubeconfig \
-          set image deployment/language-service language-service=lkjaero/language-service:${{ steps.release_version.outputs.tag }} --record
+        kubectl set image deployment/language-service language-service=lkjaero/language-service:${{ steps.release_version.outputs.tag }} --record
 
     - name: Wait for deployment to finish
       run: |
-        kubectl --kubeconfig=$GITHUB_WORKSPACE/.kubeconfig \
-          rollout status deployment/language-service
+        kubectl rollout status deployment/language-service

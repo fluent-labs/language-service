@@ -3,21 +3,13 @@ name: Test language-service
 on: [pull_request]
 
 jobs:
-  add-label:
-    name: Add patch label to pull request
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/labeler@v3
-      with:
-        repo-token: "${{ secrets.GITHUB_TOKEN }}"
-
   build:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v2.4.0
 
-    - uses: brpaz/hadolint-action@v1.3.1
+    - uses: brpaz/hadolint-action@v1.5.0
       name: Lint container image
       with:
         dockerfile: Dockerfile
@@ -26,7 +18,7 @@ jobs:
       run: docker build . -t language
     
     - name: Enforce security rules
-      uses: anchore/scan-action@v2.0.4
+      uses: anchore/scan-action@v3.2.0
       id: scan
       with:
         image: "language:latest"
@@ -42,23 +34,20 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v2.4.0
 
-    - name: Set up Python 3.8
-      uses: actions/setup-python@v2.2.1
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v2.3.1
       with:
-        python-version: 3.8
+        python-version: 3.10.1
 
     - name: Install package manager
-      uses: abatilo/actions-poetry@v2.1.0
+      uses: abatilo/actions-poetry@v2.1.4
       with:
         poetry-version: 1.1.4
 
     - name: Install dependencies
       run: poetry install
-
-    - name: Dependency security check
-      run: poetry run safety check
 
     - name: Check for syntax errors
       run: poetry run flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
@@ -71,8 +60,11 @@ jobs:
         # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
         poetry run flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
 
-    - name: Code security check
-      run: poetry run bandit -r language_service/*
-
     - name: Validate code formatter
       run: poetry run black . --check
+
+    - name: Code security check
+      run: poetry run bandit -r language_service/*
+    
+    - name: Dependency security check
+      run: poetry run safety check

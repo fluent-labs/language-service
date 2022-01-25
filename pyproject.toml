@@ -9,40 +9,41 @@ python = "^3.8.5"
 
 # Web server
 gunicorn = "^20.0.4"
-flask = "^1.1.1"
-gevent = "^20.12.1"
+flask = "^2.0.2"
+gevent = "^21.12.0"
 
 # REST
 flask_restful = "^0.3.8"
-marshmallow = "^3.5.1"
+marshmallow = "^3.14.1"
 
 # Tagging
-spacy = "^3.0.3"
-en-core-web-sm = {url = "https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.0.0/en_core_web_sm-3.0.0.tar.gz"}
-es-core-news-sm = {url = "https://github.com/explosion/spacy-models/releases/download/es_core_news_sm-3.0.0/es_core_news_sm-3.0.0.tar.gz"}
-zh_core_web_sm = {url = "https://github.com/explosion/spacy-models/releases/download/zh_core_web_sm-3.0.0/zh_core_web_sm-3.0.0.tar.gz"}
+spacy = "^3.1.0"
+da_core_news_sm = {url = "https://github.com/explosion/spacy-models/releases/download/da_core_news_sm-3.1.0/da_core_news_sm-3.1.0.tar.gz"}
+en_core_web_sm = {url = "https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.1.0/en_core_web_sm-3.1.0.tar.gz"}
+es_core_news_sm = {url = "https://github.com/explosion/spacy-models/releases/download/es_core_news_sm-3.1.0/es_core_news_sm-3.1.0.tar.gz"}
+zh_core_web_sm = {url = "https://github.com/explosion/spacy-models/releases/download/zh_core_web_sm-3.1.0/zh_core_web_sm-3.1.0.tar.gz"}
 
 # Definitions
 wiktionaryparser = "^0.0.97"
 
 # Logging
-python-json-logger = "^0.1.11"
+python-json-logger = "^2.0.2"
 
 [tool.poetry.dev-dependencies]
-pytest = "^5.2"
+pytest = "^6.2"
 
 # Linting and formatting
-flake8 = "^3.7.9"
-black = "^19.10b0"
+flake8 = "^4.0.1"
+black = "^21.12b0"
 
 # Security
 safety = "^1.8.5"
-bandit = "^1.6.2"
+bandit = "^1.7.1"
 
 # Testing
-testfixtures = "^6.14.0"
-pytest-mock = "^2.0.0"
-coverage = "^5.0.3"
+testfixtures = "^6.18.3"
+pytest-mock = "^3.6.1"
+coverage = "^6.3"
 
 [build-system]
 requires = ["poetry>=0.12"]
