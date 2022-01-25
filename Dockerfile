@@ -15,8 +15,6 @@ ENV PIP_DEFAULT_TIMEOUT=100 \
     PIP_NO_CACHE_DIR=1 \
     POETRY_VERSION=1.1.4
 
-# RUN apk add --no-cache alpine-sdk=1.0-r0 libffi-dev=3.3-r2 rust=1.47.0-r2 cargo=1.47.0-r2 libressl-dev=3.1.5-r0 musl-dev=1.2.2-r0
-
 RUN pip install "poetry==$POETRY_VERSION"
 
 RUN python -m venv /venv
