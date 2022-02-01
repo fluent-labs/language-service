@@ -42,7 +42,7 @@ bandit = "^1.7.1"
 
 # Testing
 testfixtures = "^6.18.3"
-pytest-mock = "^3.6.1"
+pytest-mock = "^3.7.0"
 coverage = "^6.3"
 
 [build-system]
