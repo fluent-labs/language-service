@@ -65,6 +65,3 @@ jobs:
 
     - name: Code security check
       run: poetry run bandit -r language_service/*
-    
-    - name: Dependency security check
-      run: poetry run safety check
