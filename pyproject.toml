@@ -30,7 +30,7 @@ wiktionaryparser = "^0.0.97"
 python-json-logger = "^2.0.2"
 
 [tool.poetry.dev-dependencies]
-pytest = "^6.2"
+pytest = "^7.0"
 
 # Linting and formatting
 flake8 = "^4.0.1"
