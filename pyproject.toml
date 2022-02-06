@@ -34,7 +34,7 @@ pytest = "^6.2"
 
 # Linting and formatting
 flake8 = "^4.0.1"
-black = "^21.12b0"
+black = "^22.1"
 
 # Security
 safety = "^1.8.5"
