@@ -35,7 +35,7 @@ jobs:
       run: docker build . -t lkjaero/language-service:latest
     
     - name: Enforce security rules
-      uses: anchore/scan-action@v3.2.0
+      uses: anchore/scan-action@v3.2.2
       id: scan
       with:
         image: "lkjaero/language-service:latest"
