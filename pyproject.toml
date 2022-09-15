@@ -14,7 +14,7 @@ gevent = "^21.12.0"
 
 # REST
 flask_restful = "^0.3.8"
-marshmallow = "^3.14.1"
+marshmallow = "^3.18.0"
 
 # Tagging
 spacy = "^3.1.0"
