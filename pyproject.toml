@@ -10,7 +10,7 @@ python = "^3.8.5"
 # Web server
 gunicorn = "^20.0.4"
 flask = "^2.0.2"
-gevent = "^21.12.0"
+gevent = "^22.8.0"
 
 # REST
 flask_restful = "^0.3.8"
