@@ -37,7 +37,7 @@ flake8 = "^4.0.1"
 black = "^22.1"
 
 # Security
-safety = "^1.8.5"
+safety = "^2.3.5"
 bandit = "^1.7.2"
 
 # Testing
