@@ -43,7 +43,7 @@ bandit = "^1.7.2"
 # Testing
 testfixtures = "^6.18.3"
 pytest-mock = "^3.7.0"
-coverage = "^6.3"
+coverage = "^7.1"
 
 [build-system]
 requires = ["poetry>=0.12"]
