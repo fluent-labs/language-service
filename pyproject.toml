@@ -41,7 +41,7 @@ safety = "^1.8.5"
 bandit = "^1.7.2"
 
 # Testing
-testfixtures = "^6.18.3"
+testfixtures = "^7.1.0"
 pytest-mock = "^3.7.0"
 coverage = "^6.3"
 
